@@ -33,8 +33,8 @@
             animation: aparecerDesdeArriba 2s ease forwards, cambiarColor 4s infinite; /* Animación combinada */
         }
 
-        /* Animación para las frases que aparecen de la izquierda */
-        @keyframes desdeIzquierdaFrase {
+        /* Animación para las letras que aparecen de la izquierda */
+        @keyframes desdeIzquierda {
             0% {
                 transform: translateX(-100%);
                 opacity: 0;
@@ -45,8 +45,8 @@
             }
         }
 
-        /* Animación para las frases que aparecen de la derecha */
-        @keyframes desdeDerechaFrase {
+        /* Animación para las letras que aparecen de la derecha */
+        @keyframes desdeDerecha {
             0% {
                 transform: translateX(100%);
                 opacity: 0;
@@ -57,27 +57,17 @@
             }
         }
 
-        /* Animación para h2, h3, h4: alternando izquierda y derecha */
+        /* Justificar y centrar el texto de h2, h3, y h4 */
         h2, h3, h4 {
             text-align: justify;
             text-align-last: center;
+        }
+
+        /* Estilos para las letras dentro de h2, h3, h4 */
+        h2 span, h3 span, h4 span {
             display: inline-block;
             opacity: 0;
-        }
-
-        h2 {
-            animation: desdeIzquierdaFrase 1s ease forwards;
-            animation-delay: 0.2s; /* Pequeño retraso para el efecto */
-        }
-
-        h3 {
-            animation: desdeDerechaFrase 1s ease forwards;
-            animation-delay: 1s; /* Pequeño retraso para el efecto */
-        }
-
-        h4 {
-            animation: desdeIzquierdaFrase 1s ease forwards;
-            animation-delay: 2s; /* Pequeño retraso para el efecto */
+            animation-fill-mode: forwards;
         }
 
         /* Animación para la imagen: Desde el centro con expansión */
@@ -142,6 +132,37 @@
         <li><a href="https://t.me/catizenbot/gameapp?startapp=r_752_41321076" target="_blank">Catizen: Experiencia de entretenimiento social con temática de gatos y blockchain.</a></li>
         <li><a href="https://t.me/catvsalienbot?start=y5V2TtxnQo" target="_blank">Cat vs. Alien: Juego de defensa disponible en Telegram. ¡Sobrevive a los ataques alienígenas!</a></li>
     </ul>
+
+    <script>
+        // Función para aplicar las animaciones a cada letra de los encabezados
+        function animarLetras(selector, delayInicial) {
+            const element = document.querySelector(selector);
+            const text = element.textContent;
+            element.innerHTML = ''; // Limpiar el contenido original
+
+            // Dividir el texto en letras y conservar los espacios
+            text.split('').forEach((letra, index) => {
+                const span = document.createElement('span');
+                span.textContent = letra === ' ' ? '\u00A0' : letra; // Mantener los espacios
+
+                // Alternar animación: izquierda para impares, derecha para pares
+                if (index % 2 === 0) {
+                    span.style.animation = `desdeIzquierda 0.5s ease forwards`; /* Animación más rápida */
+                } else {
+                    span.style.animation = `desdeDerecha 0.5s ease forwards`;  /* Animación más rápida */
+                }
+
+                // Establecer el retraso de la animación
+                span.style.animationDelay = `${delayInicial + index * 0.05}s`; /* Retraso más corto */
+                element.appendChild(span);
+            });
+        }
+
+        // Aplicamos la animación a h2, h3, y h4
+        animarLetras('#h2', 0.2);  // Inicia después de 0.2 segundos
+        animarLetras('#h3', 1);    // Inicia después de 1 segundo
+        animarLetras('#h4', 2);    // Inicia después de 2 segundos
+    </script>
 
 </body>
 </html>
