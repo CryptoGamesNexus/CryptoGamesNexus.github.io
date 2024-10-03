@@ -10,26 +10,31 @@
             background-color: #f4f4f4; 
         }
 
-        /* Animación para el h1: Aparece desde arriba */
+        /* Animación para el h1: Aparece desde arriba y cambia de color */
         @keyframes aparecerDesdeArriba {
             0% {
                 transform: translateY(-100px); /* Fuera de la pantalla hacia arriba */
                 opacity: 0; /* Completamente invisible */
+                color: blue; /* Color inicial: azul */
+            }
+            50% {
+                color: red; /* A mitad de la animación: rojo */
             }
             100% {
                 transform: translateY(0); /* Posición final */
                 opacity: 1; /* Completamente visible */
+                color: blue; /* Termina en azul */
             }
         }
 
         h1 {
             font-size: 36px;
             text-align: center;
-            animation: aparecerDesdeArriba 2s ease forwards; /* Animación para h1 */
+            animation: aparecerDesdeArriba 2s ease forwards, cambiarColor 4s infinite; /* Animación combinada */
         }
 
-        /* Animación para las letras que aparecen de la izquierda */
-        @keyframes desdeIzquierda {
+        /* Animación para las frases que aparecen de la izquierda */
+        @keyframes desdeIzquierdaFrase {
             0% {
                 transform: translateX(-100%);
                 opacity: 0;
@@ -40,8 +45,8 @@
             }
         }
 
-        /* Animación para las letras que aparecen de la derecha */
-        @keyframes desdeDerecha {
+        /* Animación para las frases que aparecen de la derecha */
+        @keyframes desdeDerechaFrase {
             0% {
                 transform: translateX(100%);
                 opacity: 0;
@@ -52,14 +57,37 @@
             }
         }
 
-        /* Animación para la imagen: Desde el centro hacia los extremos */
-        @keyframes aparecerDesdeCentro {
+        /* Animación para h2, h3, h4: alternando izquierda y derecha */
+        h2, h3, h4 {
+            text-align: justify;
+            text-align-last: center;
+            display: inline-block;
+            opacity: 0;
+        }
+
+        h2 {
+            animation: desdeIzquierdaFrase 1s ease forwards;
+            animation-delay: 0.2s; /* Pequeño retraso para el efecto */
+        }
+
+        h3 {
+            animation: desdeDerechaFrase 1s ease forwards;
+            animation-delay: 1s; /* Pequeño retraso para el efecto */
+        }
+
+        h4 {
+            animation: desdeIzquierdaFrase 1s ease forwards;
+            animation-delay: 2s; /* Pequeño retraso para el efecto */
+        }
+
+        /* Animación para la imagen: Desde el centro con expansión */
+        @keyframes expandirDesdeCentro {
             0% {
-                transform: scale(0.5); /* Imagen más pequeña (mitad de su tamaño) */
+                transform: scale(0.5); /* Mitad de tamaño */
                 opacity: 0; /* Completamente invisible */
             }
             100% {
-                transform: scale(1); /* Tamaño normal */
+                transform: scale(1); /* Tamaño completo */
                 opacity: 1; /* Completamente visible */
             }
         }
@@ -67,22 +95,9 @@
         img { 
             display: block; 
             margin: 20px auto; 
-            max-width: 100%; 
+            max-width: 50%; /* Imagen a la mitad del tamaño original */
             height: auto; 
-            animation: aparecerDesdeCentro 1.5s ease forwards; /* Animación para la imagen */
-        }
-
-        /* Estilo para h2, h3, h4 */
-        h2, h3, h4 {
-            text-align: justify;
-            text-align-last: center;
-        }
-
-        /* Animación para las letras de h2, h3, h4 */
-        h2 span, h3 span, h4 span {
-            display: inline-block;
-            opacity: 0;
-            animation-fill-mode: forwards;
+            animation: expandirDesdeCentro 1.5s ease forwards; /* Animación de expansión */
         }
 
         p { 
@@ -114,7 +129,7 @@
 </head>
 <body>
 
-    <h1>¡Bienvenido a CryptoGamesNexus! 🚀</h1> <!-- Título principal con animación de aparecer desde arriba -->
+    <h1>¡Bienvenido a CryptoGamesNexus! 🚀</h1> <!-- Título principal con animación combinada -->
     <h2 id="h2">Aquí encontrarás los mejores bots de airdrops de Telegram</h2>
     <h3 id="h3">Únete a nuestra comunidad y aprovecha oportunidades exclusivas para ganar recompensas.</h3>
     <h4 id="h4">¡No te pierdas ninguna novedad y comienza a ganar hoy mismo!</h4>
@@ -127,37 +142,6 @@
         <li><a href="https://t.me/catizenbot/gameapp?startapp=r_752_41321076" target="_blank">Catizen: Experiencia de entretenimiento social con temática de gatos y blockchain.</a></li>
         <li><a href="https://t.me/catvsalienbot?start=y5V2TtxnQo" target="_blank">Cat vs. Alien: Juego de defensa disponible en Telegram. ¡Sobrevive a los ataques alienígenas!</a></li>
     </ul>
-
-    <script>
-        // Función para aplicar las animaciones a cada letra de los encabezados
-        function animarLetras(selector, delayInicial) {
-            const element = document.querySelector(selector);
-            const text = element.textContent;
-            element.innerHTML = ''; // Limpiar el contenido original
-
-            // Dividir el texto en letras y conservar los espacios
-            text.split('').forEach((letra, index) => {
-                const span = document.createElement('span');
-                span.textContent = letra === ' ' ? '\u00A0' : letra; // Reemplazamos el espacio por un espacio no separable (mantiene el espacio)
-
-                // Alternar animación: izquierda para impares, derecha para pares
-                if (index % 2 === 0) {
-                    span.style.animation = `desdeIzquierda 0.5s ease forwards`; /* Animación más rápida */
-                } else {
-                    span.style.animation = `desdeDerecha 0.5s ease forwards`;  /* Animación más rápida */
-                }
-
-                // Establecer el retraso de la animación
-                span.style.animationDelay = `${delayInicial + index * 0.05}s`; /* Retraso más corto */
-                element.appendChild(span);
-            });
-        }
-
-        // Aplicamos la animación a h2, h3, y h4
-        animarLetras('#h2', 0.2);  // Inicia después de 0.2 segundos
-        animarLetras('#h3', 1);    // Inicia después de 1 segundo
-        animarLetras('#h4', 2);    // Inicia después de 2 segundos
-    </script>
 
 </body>
 </html>
