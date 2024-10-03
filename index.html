@@ -10,17 +10,22 @@
             background-color: #f4f4f4; 
         }
 
-        /* Animación para el h1: Cambiar color */
-        @keyframes cambiarColor {
-            0% { color: blue; }
-            50% { color: red; }
-            100% { color: blue; }
+        /* Animación para el h1: Aparece desde arriba */
+        @keyframes aparecerDesdeArriba {
+            0% {
+                transform: translateY(-100px); /* Fuera de la pantalla hacia arriba */
+                opacity: 0; /* Completamente invisible */
+            }
+            100% {
+                transform: translateY(0); /* Posición final */
+                opacity: 1; /* Completamente visible */
+            }
         }
 
         h1 {
             font-size: 36px;
             text-align: center;
-            animation: cambiarColor 4s infinite;
+            animation: aparecerDesdeArriba 2s ease forwards; /* Animación para h1 */
         }
 
         /* Animación para las letras que aparecen de la izquierda */
@@ -47,17 +52,37 @@
             }
         }
 
-        /* Animación para h2, h3, h4 */
+        /* Animación para la imagen: Desde el centro hacia los extremos */
+        @keyframes aparecerDesdeCentro {
+            0% {
+                transform: scale(0.5); /* Imagen más pequeña (mitad de su tamaño) */
+                opacity: 0; /* Completamente invisible */
+            }
+            100% {
+                transform: scale(1); /* Tamaño normal */
+                opacity: 1; /* Completamente visible */
+            }
+        }
+
+        img { 
+            display: block; 
+            margin: 20px auto; 
+            max-width: 100%; 
+            height: auto; 
+            animation: aparecerDesdeCentro 1.5s ease forwards; /* Animación para la imagen */
+        }
+
+        /* Estilo para h2, h3, h4 */
+        h2, h3, h4 {
+            text-align: justify;
+            text-align-last: center;
+        }
+
+        /* Animación para las letras de h2, h3, h4 */
         h2 span, h3 span, h4 span {
             display: inline-block;
             opacity: 0;
             animation-fill-mode: forwards;
-        }
-
-        /* Justificar y centrar el texto de h2, h3, y h4 */
-        h2, h3, h4 {
-            text-align: justify;
-            text-align-last: center;
         }
 
         p { 
@@ -85,18 +110,11 @@
         a:hover { 
             text-decoration: underline; 
         }
-
-        img { 
-            display: block; 
-            margin: 20px auto; 
-            max-width: 100%; 
-            height: auto; 
-        }
     </style>
 </head>
 <body>
 
-    <h1>¡Bienvenido a CryptoGamesNexus! 🚀</h1> <!-- Título principal con animación de color -->
+    <h1>¡Bienvenido a CryptoGamesNexus! 🚀</h1> <!-- Título principal con animación de aparecer desde arriba -->
     <h2 id="h2">Aquí encontrarás los mejores bots de airdrops de Telegram</h2>
     <h3 id="h3">Únete a nuestra comunidad y aprovecha oportunidades exclusivas para ganar recompensas.</h3>
     <h4 id="h4">¡No te pierdas ninguna novedad y comienza a ganar hoy mismo!</h4>
@@ -117,10 +135,10 @@
             const text = element.textContent;
             element.innerHTML = ''; // Limpiar el contenido original
 
-            // Dividir el texto en letras, y aplicar span a cada una
-            [...text].forEach((letra, index) => {
+            // Dividir el texto en letras y conservar los espacios
+            text.split('').forEach((letra, index) => {
                 const span = document.createElement('span');
-                span.textContent = letra;
+                span.textContent = letra === ' ' ? '\u00A0' : letra; // Reemplazamos el espacio por un espacio no separable (mantiene el espacio)
 
                 // Alternar animación: izquierda para impares, derecha para pares
                 if (index % 2 === 0) {
