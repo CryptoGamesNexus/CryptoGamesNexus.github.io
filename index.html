@@ -54,6 +54,12 @@
             animation-fill-mode: forwards;
         }
 
+        /* Justificar y centrar el texto de h2, h3, y h4 */
+        h2, h3, h4 {
+            text-align: justify;
+            text-align-last: center;
+        }
+
         p { 
             font-size: 16px; 
             color: #333; 
@@ -118,13 +124,13 @@
 
                 // Alternar animación: izquierda para impares, derecha para pares
                 if (index % 2 === 0) {
-                    span.style.animation = `desdeIzquierda 1s ease forwards`;
+                    span.style.animation = `desdeIzquierda 0.5s ease forwards`; /* Animación más rápida */
                 } else {
-                    span.style.animation = `desdeDerecha 1s ease forwards`;
+                    span.style.animation = `desdeDerecha 0.5s ease forwards`;  /* Animación más rápida */
                 }
 
                 // Establecer el retraso de la animación
-                span.style.animationDelay = `${delayInicial + index * 0.1}s`;
+                span.style.animationDelay = `${delayInicial + index * 0.05}s`; /* Retraso más corto */
                 element.appendChild(span);
             });
         }
