@@ -16,6 +16,18 @@
         a:hover { text-decoration: underline; }
         img { display: block; margin: 20px auto; max-width: 100%; height: auto; }
     </style>
+    /* Definimos la animación */
+        @keyframes cambiarColor {
+            0% { color: blue; }    /* El color inicial es azul */
+            50% { color: red; }    /* A mitad de la animación, cambia a rojo */
+            100% { color: blue; }  /* Termina volviendo a azul */
+        }
+
+        h2 {
+            font-family: Arial, sans-serif;
+            font-size: 24px;
+            animation: cambiarColor 4s infinite; /* Aplicamos la animación al h2 */
+        }
 </head>
 <body>
     <h1>¡Bienvenido a <strong>CryptoGamesNexus</strong>! 🚀 <h1>
