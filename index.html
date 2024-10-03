@@ -10,17 +10,47 @@
             background-color: #f4f4f4; 
         }
 
-        h1, h2, h3, h4 { 
+        /* Animación para el h1: Cambiar color */
+        @keyframes cambiarColor {
+            0% { color: blue; }   /* Color inicial: azul */
+            50% { color: red; }    /* A mitad de la animación: rojo */
+            100% { color: blue; }  /* Termina volviendo a azul */
+        }
+
+        h1 {
+            font-size: 36px;
+            text-align: center;
+            animation: cambiarColor 4s infinite; /* Animación de color para h1 */
+        }
+
+        /* Animación para h2, h3, h4: Movimiento de derecha a izquierda */
+        @keyframes moverDerechaIzquierda {
+            0% { 
+                transform: translateX(100%); /* Comienza fuera de la pantalla (derecha) */
+                opacity: 0; /* Invisible */
+            }
+            50% {
+                transform: translateX(0); /* Llega al centro de la pantalla */
+                opacity: 1; /* Visible */
+            }
+            100% { 
+                transform: translateX(0); /* Se queda en su lugar */
+                opacity: 1; /* Totalmente visible */
+            }
+        }
+
+        h2, h3, h4 { 
             color: #333; 
             text-align: center; 
-        } /* Centramos todos los encabezados de h1 a h4 */
+            animation: moverDerechaIzquierda 3s ease-out forwards; /* Animación para h2, h3, h4 */
+        }
 
         p { 
             font-size: 16px; 
             color: #333; 
             line-height: 1.5; 
             text-align: justify; 
-        } /* Justificamos los párrafos */
+        }
 
         ul { 
             list-style-type: none; 
@@ -47,34 +77,23 @@
             max-width: 100%; 
             height: auto; 
         }
-
-        /* Definimos la animación para cambiar color */
-        @keyframes cambiarColor {
-            0% { color: blue; }   /* El color inicial es azul */
-            50% { color: red; }    /* A mitad de la animación, cambia a rojo */
-            100% { color: blue; }  /* Termina volviendo a azul */
-        }
-
-        h2 {
-            font-size: 24px;
-            animation: cambiarColor 4s infinite; /* Aplicamos la animación al h2 */
-        }
     </style>
 </head>
 <body>
 
-    <h1>¡Bienvenido a <strong>CryptoGamesNexus</strong>! 🚀</h1>
-    <h2>Aquí encontrarás los mejores bots de airdrops de Telegram y las últimas noticias del mundo cripto.</h2>
-    <h3>Únete a nuestra comunidad y aprovecha oportunidades exclusivas para ganar recompensas.</h3>
-    <h4>¡No te pierdas ninguna novedad y comienza a ganar hoy mismo!</h4>
+    <h1>¡Bienvenido a CryptoGamesNexus! 🚀</h1> <!-- Título principal con animación de color -->
+    <h2>Aquí encontrarás los mejores bots de airdrops de Telegram</h2>
+    <h3>y las últimas noticias del mundo cripto.</h3>
+    <h4>¡Únete a nuestra comunidad y comienza a ganar hoy mismo!</h4>
 
     <img src="Discord_server_profile_image.jpg" alt="Imagen de bienvenida">
     
+    <p>Descubre oportunidades exclusivas, participa en sorteos y mantente al tanto de las novedades más emocionantes en el mundo de las criptomonedas.</p>
+
     <ul>
-        <li><a href="https://t.me/catizenbot/gameapp?startapp=r_752_41321076" target="_blank">Catizen es una experiencia única de entretenimiento social con temática de gatos en Telegram, que combina interacciones lúdicas con el poder de la cadena de bloques TON.</a></li>
-        <li><a href="https://t.me/catvsalienbot?start=y5V2TtxnQo" target="_blank">Cat vs. Alien es un juego de defensa inactiva disponible en la plataforma Telegram. En este juego, los jugadores deben sobrevivir a los ataques de monstruos alienígenas invocando formidables soldados gato para crear una fuerte barrera defensiva.</a></li>
+        <li><a href="https://t.me/catizenbot/gameapp?startapp=r_752_41321076" target="_blank">Catizen: Experiencia de entretenimiento social con temática de gatos y blockchain.</a></li>
+        <li><a href="https://t.me/catvsalienbot?start=y5V2TtxnQo" target="_blank">Cat vs. Alien: Juego de defensa disponible en Telegram. ¡Sobrevive a los ataques alienígenas!</a></li>
     </ul>
 
 </body>
 </html>
-
