@@ -64,6 +64,11 @@
             display: inline-block;
         }
 
+        .rocket {
+            display: inline-block;
+            animation: despegar 2s ease-in-out infinite;
+        }
+
         /* Animación para las letras que aparecen de la izquierda */
         @keyframes desdeIzquierda {
             0% {
@@ -88,6 +93,13 @@
             }
         }
 
+        /* Animación de color para las palabras */
+        @keyframes cambiarColorPalabras {
+            0% { color: #ff5733; }   /* Naranja */
+            50% { color: #33ff57; }  /* Verde */
+            100% { color: #5733ff; } /* Azul */
+        }
+
         /* Justificar y centrar el texto de h2, h3, y h4 */
         h2, h3, h4 {
             text-align: justify;
@@ -101,6 +113,7 @@
             display: inline-block;
             opacity: 0;
             animation-fill-mode: forwards;
+            animation: cambiarColorPalabras 2s infinite; /* Aplicar la animación de colores a las palabras */
         }
 
         /* Animación para la imagen: Desde el centro con expansión */
@@ -150,11 +163,6 @@
             }
         }
 
-        .rocket {
-            display: inline-block;
-            animation: despegar 2s ease-in-out infinite;
-        }
-
         ul { 
             list-style-type: none; 
             padding: 0; 
@@ -198,7 +206,9 @@
 <body>
 
     <div class="content">
-        <h1><span class="rocket">🚀</span> ¡Bienvenido a CryptoGamesNexus!</h1> <!-- Título principal con animación combinada -->
+        <h1>
+            <span class="rocket">🚀</span> ¡Bienvenido a CryptoGamesNexus! <span class="rocket">🚀</span>
+        </h1> <!-- Título principal con animación combinada -->
         <h2 id="h2">Aquí encontrarás los mejores bots de airdrops de Telegram</h2>
         <h3 id="h3">Únete a nuestra comunidad y aprovecha oportunidades exclusivas para ganar recompensas.</h3>
         <h4 id="h4">¡No te pierdas ninguna novedad y comienza a ganar hoy mismo!</h4>
@@ -230,13 +240,13 @@
 
                 // Alternar animación: izquierda para impares, derecha para pares
                 if (index % 2 === 0) {
-                    span.style.animation = `desdeIzquierda 0.25s ease forwards`; /* Animación más rápida */
+                    span.style.animation = `desdeIzquierda 0.125s ease forwards`; /* Animación aún más rápida */
                 } else {
-                    span.style.animation = `desdeDerecha 0.25s ease forwards`;  /* Animación más rápida */
+                    span.style.animation = `desdeDerecha 0.125s ease forwards`;  /* Animación aún más rápida */
                 }
 
                 // Establecer el retraso de la animación
-                span.style.animationDelay = `${delayInicial + index * 0.03}s`; /* Retraso más corto */
+                span.style.animationDelay = `${delayInicial + index * 0.015}s`; /* Retraso más corto */
                 element.appendChild(span);
             });
         }
