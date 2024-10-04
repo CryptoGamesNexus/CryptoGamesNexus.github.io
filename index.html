@@ -9,7 +9,7 @@
             margin: 20px; 
             background: url('https://github.com/CryptoGamesNexus/CryptoGamesNexus.github.io/raw/main/An_eye-catching_futuristic_background_image_suitab.jpg') no-repeat center center fixed; /* Imagen de fondo desde GitHub (raw) */
             background-size: cover; /* Ajustar la imagen para cubrir toda la pantalla */
-            color: #fff; /* Cambiamos el color del texto a blanco para mejor visibilidad */
+            color: #f0f0f0; /* Cambiamos el color del texto a un blanco brillante para mejor visibilidad */
         }
 
         /* Animación para el h1: Aparece desde arriba y cambia de color */
@@ -25,7 +25,7 @@
             100% {
                 transform: translateY(0); /* Posición final */
                 opacity: 1; /* Completamente visible */
-                color: blue; /* Termina en azul */
+                color: #00ffff; /* Cambiar a un cian brillante para buena visibilidad */
             }
         }
 
@@ -33,6 +33,7 @@
             font-size: 36px;
             text-align: center;
             animation: aparecerDesdeArriba 2s ease forwards, cambiarColor 4s infinite; /* Animación combinada */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Añadir sombra al texto para mejor contraste */
         }
 
         /* Animación para las letras que aparecen de la izquierda */
@@ -63,6 +64,8 @@
         h2, h3, h4 {
             text-align: justify;
             text-align-last: center;
+            color: #f0f0f0; /* Blanco brillante para mejor visibilidad */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Añadir sombra al texto */
         }
 
         /* Estilos para las letras dentro de h2, h3, h4 */
@@ -93,16 +96,17 @@
         }
 
         p { 
-            font-size: 16px; 
-            color: #fff; /* Cambiamos el color del texto a blanco para mejor visibilidad */
-            line-height: 1.5; 
+            font-size: 18px; /* Aumentamos ligeramente el tamaño de la fuente para mejor legibilidad */
+            color: #ffffff; /* Blanco brillante */
+            line-height: 1.6; 
             text-align: justify; 
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Añadir sombra para hacer que el texto destaque */
         }
 
         ul { 
             list-style-type: none; 
             padding: 0; 
-            color: #fff; /* Color del texto de la lista */
+            color: #ffffff; /* Blanco brillante para visibilidad */
         }
 
         li { 
@@ -111,12 +115,14 @@
 
         a { 
             text-decoration: none; 
-            color: #ffcc00; /* Cambiar el color de los enlaces para que resalten */
+            color: #ffcc00; /* Cambiar el color de los enlaces a amarillo brillante para mejor visibilidad */
             font-size: 18px; 
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Añadir sombra a los enlaces */
         }
 
         a:hover { 
             text-decoration: underline; 
+            color: #ffd700; /* Color dorado al pasar el mouse para destacar los enlaces */
         }
     </style>
 </head>
