@@ -124,6 +124,12 @@
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Añadir sombra para hacer que el texto destaque */
         }
 
+        p span {
+            display: inline-block;
+            opacity: 0;
+            animation-fill-mode: forwards;
+        }
+
         ul { 
             list-style-type: none; 
             padding: 0; 
@@ -174,7 +180,7 @@
 
         <img src="Discord_server_profile_image.jpg" alt="Imagen de bienvenida">
         
-        <p>Descubre oportunidades exclusivas, participa en sorteos y mantente al tanto de las novedades más emocionantes en el mundo de las criptomonedas.</p>
+        <p id="p">Descubre oportunidades exclusivas, participa en sorteos y mantente al tanto de las novedades más emocionantes en el mundo de las criptomonedas.</p>
 
         <div class="menu-title">Links de acceso a los juegos</div>
         <div class="menu-subtitle">👇 Ingresa ahora y empieza a ganar tú también 👇</div>
@@ -210,10 +216,11 @@
             });
         }
 
-        // Aplicamos la animación a h2, h3, y h4
+        // Aplicamos la animación a h2, h3, h4 y p
         animarLetras('#h2', 0.2);  // Inicia después de 0.2 segundos
         animarLetras('#h3', 1);    // Inicia después de 1 segundo
         animarLetras('#h4', 2);    // Inicia después de 2 segundos
+        animarLetras('#p', 3);     // Inicia después de 3 segundos para el párrafo debajo de la imagen
     </script>
 
 </body>
