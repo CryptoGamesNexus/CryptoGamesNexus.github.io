@@ -6,10 +6,31 @@
     <style>
         body { 
             font-family: Arial, sans-serif; 
-            margin: 20px; 
+            margin: 0; 
+            padding: 0;
             background: url('https://github.com/CryptoGamesNexus/CryptoGamesNexus.github.io/raw/main/An_eye-catching_futuristic_background_image_suitab.jpg') no-repeat center center fixed; /* Imagen de fondo desde GitHub (raw) */
             background-size: cover; /* Ajustar la imagen para cubrir toda la pantalla */
+            position: relative;
             color: #f0f0f0; /* Cambiamos el color del texto a un blanco brillante para mejor visibilidad */
+        }
+
+        /* Overlay para mejorar la visibilidad del texto */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6); /* Fondo negro con opacidad para mejorar el contraste */
+            z-index: 1; /* Asegurar que quede detrás del contenido principal */
+        }
+
+        /* Ajuste para el contenedor principal */
+        .content {
+            position: relative;
+            z-index: 2; /* Asegurar que el contenido esté por encima del overlay */
+            padding: 20px;
         }
 
         /* Animación para el h1: Aparece desde arriba y cambia de color */
@@ -128,19 +149,21 @@
 </head>
 <body>
 
-    <h1>¡Bienvenido a CryptoGamesNexus! 🚀</h1> <!-- Título principal con animación combinada -->
-    <h2 id="h2">Aquí encontrarás los mejores bots de airdrops de Telegram</h2>
-    <h3 id="h3">Únete a nuestra comunidad y aprovecha oportunidades exclusivas para ganar recompensas.</h3>
-    <h4 id="h4">¡No te pierdas ninguna novedad y comienza a ganar hoy mismo!</h4>
+    <div class="content">
+        <h1>¡Bienvenido a CryptoGamesNexus! 🚀</h1> <!-- Título principal con animación combinada -->
+        <h2 id="h2">Aquí encontrarás los mejores bots de airdrops de Telegram</h2>
+        <h3 id="h3">Únete a nuestra comunidad y aprovecha oportunidades exclusivas para ganar recompensas.</h3>
+        <h4 id="h4">¡No te pierdas ninguna novedad y comienza a ganar hoy mismo!</h4>
 
-    <img src="Discord_server_profile_image.jpg" alt="Imagen de bienvenida">
-    
-    <p>Descubre oportunidades exclusivas, participa en sorteos y mantente al tanto de las novedades más emocionantes en el mundo de las criptomonedas.</p>
+        <img src="Discord_server_profile_image.jpg" alt="Imagen de bienvenida">
+        
+        <p>Descubre oportunidades exclusivas, participa en sorteos y mantente al tanto de las novedades más emocionantes en el mundo de las criptomonedas.</p>
 
-    <ul>
-        <li><a href="https://t.me/catizenbot/gameapp?startapp=r_752_41321076" target="_blank">Catizen</a></li>
-        <li><a href="https://t.me/catvsalienbot?start=y5V2TtxnQo" target="_blank">Cat vs. Alien</a></li>
-    </ul>
+        <ul>
+            <li><a href="https://t.me/catizenbot/gameapp?startapp=r_752_41321076" target="_blank">Catizen</a></li>
+            <li><a href="https://t.me/catvsalienbot?start=y5V2TtxnQo" target="_blank">Cat vs. Alien</a></li>
+        </ul>
+    </div>
 
     <script>
         // Función para aplicar las animaciones a cada letra de los encabezados
