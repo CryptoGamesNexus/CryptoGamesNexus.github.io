@@ -7,7 +7,7 @@
         body { 
             font-family: Arial, sans-serif; 
             margin: 20px; 
-            background: <img src=An_eye-catching_futuristic_background_image_suitab.jpg> no-repeat center center fixed; /* Imagen de fondo */
+            background: url('An_eye-catching_futuristic_background_image_suitab.jpg') no-repeat center center fixed; /* Imagen de fondo */
             background-size: cover; /* Ajustar la imagen para cubrir toda la pantalla */
             color: #fff; /* Cambiamos el color del texto a blanco para mejor visibilidad */
         }
@@ -116,56 +116,4 @@
         }
 
         a:hover { 
-            text-decoration: underline; 
-        }
-    </style>
-</head>
-<body>
-
-    <h1>¡Bienvenido a CryptoGamesNexus! 🚀</h1> <!-- Título principal con animación combinada -->
-    <h2 id="h2">Aquí encontrarás los mejores bots de airdrops de Telegram</h2>
-    <h3 id="h3">Únete a nuestra comunidad y aprovecha oportunidades exclusivas para ganar recompensas.</h3>
-    <h4 id="h4">¡No te pierdas ninguna novedad y comienza a ganar hoy mismo!</h4>
-
-    <img src="Discord_server_profile_image.jpg" alt="Imagen de bienvenida">
-    
-    <p>Descubre oportunidades exclusivas, participa en sorteos y mantente al tanto de las novedades más emocionantes en el mundo de las criptomonedas.</p>
-
-    <ul>
-        <li><a href="https://t.me/catizenbot/gameapp?startapp=r_752_41321076" target="_blank">Catizen</a></li>
-        <li><a href="https://t.me/catvsalienbot?start=y5V2TtxnQo" target="_blank">Cat vs. Alien</a></li>
-    </ul>
-
-    <script>
-        // Función para aplicar las animaciones a cada letra de los encabezados
-        function animarLetras(selector, delayInicial) {
-            const element = document.querySelector(selector);
-            const text = element.textContent;
-            element.innerHTML = ''; // Limpiar el contenido original
-
-            // Dividir el texto en letras y conservar los espacios
-            text.split('').forEach((letra, index) => {
-                const span = document.createElement('span');
-                span.textContent = letra === ' ' ? '\u00A0' : letra; // Mantener los espacios
-
-                // Alternar animación: izquierda para impares, derecha para pares
-                if (index % 2 === 0) {
-                    span.style.animation = `desdeIzquierda 0.5s ease forwards`; /* Animación más rápida */
-                } else {
-                    span.style.animation = `desdeDerecha 0.5s ease forwards`;  /* Animación más rápida */
-                }
-
-                // Establecer el retraso de la animación
-                span.style.animationDelay = `${delayInicial + index * 0.05}s`; /* Retraso más corto */
-                element.appendChild(span);
-            });
-        }
-
-        // Aplicamos la animación a h2, h3, y h4
-        animarLetras('#h2', 0.2);  // Inicia después de 0.2 segundos
-        animarLetras('#h3', 1);    // Inicia después de 1 segundo
-        animarLetras('#h4', 2);    // Inicia después de 2 segundos
-    </script>
-
-</body>
-</html>
+            text-decoration: un
