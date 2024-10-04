@@ -116,7 +116,7 @@
             display: inline-block;
             opacity: 0;
             animation-fill-mode: forwards;
-            animation: cambiarColorPalabras 2s infinite; /* Aplicar la animación de colores a las palabras */
+            animation: cambiarColorPalabras 3s infinite alternate; /* Aplicar la animación de colores a las palabras */
         }
 
         /* Animación para la imagen: Desde el centro con expansión */
@@ -243,9 +243,9 @@
 
                 // Alternar animación: izquierda para impares, derecha para pares
                 if (index % 2 === 0) {
-                    span.style.animation = `desdeIzquierda 0.1s ease forwards`; /* Animación más rápida */
+                    span.style.animation = `desdeIzquierda 0.1s ease forwards, cambiarColorPalabras 3s infinite alternate`; /* Animación más rápida y de color */
                 } else {
-                    span.style.animation = `desdeDerecha 0.1s ease forwards`;  /* Animación más rápida */
+                    span.style.animation = `desdeDerecha 0.1s ease forwards, cambiarColorPalabras 3s infinite alternate`;  /* Animación más rápida y de color */
                 }
 
                 // Establecer el retraso de la animación
