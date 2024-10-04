@@ -61,12 +61,15 @@
             text-align: center;
             animation: aparecerDesdeArriba 2s ease forwards, cambiarColor 2s infinite; /* Animación combinada con cambio de color continuo */
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Añadir sombra al texto para mejor contraste */
-            display: inline-block;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .rocket {
             display: inline-block;
             animation: despegar 2s ease-in-out infinite;
+            margin: 0 10px;
         }
 
         /* Animación para las letras que aparecen de la izquierda */
@@ -240,22 +243,22 @@
 
                 // Alternar animación: izquierda para impares, derecha para pares
                 if (index % 2 === 0) {
-                    span.style.animation = `desdeIzquierda 0.125s ease forwards`; /* Animación aún más rápida */
+                    span.style.animation = `desdeIzquierda 0.1s ease forwards`; /* Animación más rápida */
                 } else {
-                    span.style.animation = `desdeDerecha 0.125s ease forwards`;  /* Animación aún más rápida */
+                    span.style.animation = `desdeDerecha 0.1s ease forwards`;  /* Animación más rápida */
                 }
 
                 // Establecer el retraso de la animación
-                span.style.animationDelay = `${delayInicial + index * 0.015}s`; /* Retraso más corto */
+                span.style.animationDelay = `${delayInicial + index * 0.03}s`; /* Retraso más corto */
                 element.appendChild(span);
             });
         }
 
         // Aplicamos la animación a h2, h3, h4 y p
-        animarLetras('#h2', 0.2);  // Inicia después de 0.2 segundos
-        animarLetras('#h3', 1);    // Inicia después de 1 segundo
-        animarLetras('#h4', 2);    // Inicia después de 2 segundos
-        animarLetras('#p', 3);     // Inicia después de 3 segundos para el párrafo debajo de la imagen
+        animarLetras('#h2', 0);  // Inicia inmediatamente
+        animarLetras('#h3', 0);    // Inicia inmediatamente
+        animarLetras('#h4', 0);    // Inicia inmediatamente
+        animarLetras('#p', 0);     // Inicia inmediatamente para el párrafo debajo de la imagen
     </script>
 
 </body>
