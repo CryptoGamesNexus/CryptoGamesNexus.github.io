@@ -50,11 +50,18 @@
             }
         }
 
+        @keyframes cambiarColor {
+            0% { color: blue; }   /* Color inicial: azul */
+            50% { color: red; }    /* A mitad de la animación: rojo */
+            100% { color: blue; }  /* Termina volviendo a azul */
+        }
+
         h1 {
             font-size: 36px;
             text-align: center;
-            animation: aparecerDesdeArriba 2s ease forwards, cambiarColor 4s infinite; /* Animación combinada */
+            animation: aparecerDesdeArriba 2s ease forwards, cambiarColor 2s infinite; /* Animación combinada con cambio de color continuo */
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Añadir sombra al texto para mejor contraste */
+            display: inline-block;
         }
 
         /* Animación para las letras que aparecen de la izquierda */
@@ -90,7 +97,7 @@
         }
 
         /* Estilos para las letras dentro de h2, h3, h4 */
-        h2 span, h3 span, h4 span {
+        h2 span, h3 span, h4 span, p span, ul span, li span {
             display: inline-block;
             opacity: 0;
             animation-fill-mode: forwards;
@@ -124,10 +131,28 @@
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Añadir sombra para hacer que el texto destaque */
         }
 
-        p span {
+        p span, ul span, li span {
             display: inline-block;
             opacity: 0;
             animation-fill-mode: forwards;
+        }
+
+        /* Animación para el cohete despegando */
+        @keyframes despegar {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        .rocket {
+            display: inline-block;
+            animation: despegar 2s ease-in-out infinite;
         }
 
         ul { 
@@ -173,7 +198,7 @@
 <body>
 
     <div class="content">
-        <h1>¡Bienvenido a CryptoGamesNexus! 🚀</h1> <!-- Título principal con animación combinada -->
+        <h1><span class="rocket">🚀</span> ¡Bienvenido a CryptoGamesNexus!</h1> <!-- Título principal con animación combinada -->
         <h2 id="h2">Aquí encontrarás los mejores bots de airdrops de Telegram</h2>
         <h3 id="h3">Únete a nuestra comunidad y aprovecha oportunidades exclusivas para ganar recompensas.</h3>
         <h4 id="h4">¡No te pierdas ninguna novedad y comienza a ganar hoy mismo!</h4>
@@ -205,13 +230,13 @@
 
                 // Alternar animación: izquierda para impares, derecha para pares
                 if (index % 2 === 0) {
-                    span.style.animation = `desdeIzquierda 0.5s ease forwards`; /* Animación más rápida */
+                    span.style.animation = `desdeIzquierda 0.25s ease forwards`; /* Animación más rápida */
                 } else {
-                    span.style.animation = `desdeDerecha 0.5s ease forwards`;  /* Animación más rápida */
+                    span.style.animation = `desdeDerecha 0.25s ease forwards`;  /* Animación más rápida */
                 }
 
                 // Establecer el retraso de la animación
-                span.style.animationDelay = `${delayInicial + index * 0.05}s`; /* Retraso más corto */
+                span.style.animationDelay = `${delayInicial + index * 0.03}s`; /* Retraso más corto */
                 element.appendChild(span);
             });
         }
