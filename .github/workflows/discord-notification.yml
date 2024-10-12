@@ -15,4 +15,3 @@ jobs:
         curl -H "Content-Type: application/json" \
         -d "{\"content\": \"New update on GitHub repository: ${{ github.event.head_commit.message }}\"}" \
         https://discord.com/api/webhooks/1294780729556996117/u6BnnAlSUvQxfd86e2dsYAz-bVmb7yyrednL_6jqeISUS2BrzdVgL7nF3IpzMYcF_-ER
-
